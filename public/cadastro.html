@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <form id="registerForm">
+        <label for="firstName">Nome:</label>
+        <input type="text" id="firstName" name="firstName" required><br>
+
+        <label for="lastName">Sobrenome:</label>
+        <input type="text" id="lastName" name="lastName" required><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="confirmPassword">Confirmação de Senha:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+
+        <label for="2faToken">Código 2FA:</label>
+        <input type="text" id="2faToken" name="2faToken" required><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const twofaToken = document.getElementById('2faToken').value;
+
+            if (password !== confirmPassword) {
+                alert('As senhas não correspondem!');
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({firstName, lastName, email, password, twofaToken })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert('Cadastro realizado com sucesso!');
+            } else {
+                alert('Erro ao cadastrar: ' + data.message);
+            }
+        });
+    </script>
+</body>
+</html>
