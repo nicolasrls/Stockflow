@@ -1,0 +1,19 @@
+.NewButton {
+    margin-bottom: 20px;
+    align-self: flex-start;
+    background-color: #ffffff;
+    color: #1D1D1D;
+    border-radius: 8px;
+    border: 1px solid #000000;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .NewButton:hover {
+     background-color: #8fdb6c;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
