@@ -1,13 +1,8 @@
 import React from 'react';
-import './App.css';
-import Home from './components/Home'; // Ajuste o caminho se necessário
+import Rotas from './rotas'; // Verifique o caminho correto para seu arquivo rotas
 
 const App: React.FC = () => {
-  return (
-    <div>
-      <Home />
-    </div>
-  );
+  return <Rotas />;
 };
 
 export default App;
