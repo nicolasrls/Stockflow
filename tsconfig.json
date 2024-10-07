@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                                  /* Define a versão do JavaScript emitido. */
+    "module": "commonjs",                              /* Define o módulo do Node.js. */
+    "rootDir": "./src",                                /* Diretório raiz dos arquivos de origem. */
+    "outDir": "./dist",                                /* Diretório para a saída dos arquivos compilados. */
+    "strict": true,                                    /* Habilita todas as verificações estritas. */
+    "esModuleInterop": true,                           /* Habilita a interoperabilidade com módulos ES. */
+    "forceConsistentCasingInFileNames": true,          /* Verifica a consistência dos nomes de arquivos. */
+    "skipLibCheck": true                               /* Pula a verificação de arquivos de declaração. */
+  },
+  "include": ["src/**/*"]                              /* Inclui todos os arquivos .ts dentro de src. */
+}
