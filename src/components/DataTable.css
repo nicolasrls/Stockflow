@@ -1,0 +1,40 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .tr-title {
+    background-color: #070707;
+  }
+  
+  th, td {
+    color: #FBFBFB;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  td {
+    color: #000000;
+    border-bottom: 2px solid #b9b9b9;
+    border-right: 2px solid #b9b9b9;
+  }
+  
+  td:last-child {
+    border-right: none;
+  }
+  
+  tr:last-child > td {
+    border-bottom: none;
+  }
+  
+  .th-first {
+    border-top-left-radius: 15px;
+  }
+  
+  .th-last {
+    border-top-right-radius: 15px;
+  }
+  
+  tbody {
+    background-color: #e7e7e7;
+  }

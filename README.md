@@ -1,12 +1,50 @@
-# Stockflow
-Projeto da cadeira de Programação com frameworks Web do prof. Jeofton Costa.
+# React + TypeScript + Vite
 
-### V1.0 - versão inicial
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Começando pelo começo, estudei a respeito do token JWT, suas funcionalidades e aprendi acerca da geração. Também estudando sobre o 2FA, consegui implementar a geração do QR Code para ser utilizado com uma outra solução de autenticação(Authy ou Google Authenticator por ex.) e também obtive sucesso na validação do segredo gerado. Seguirei aprimorando a interface inicial de login/cadastro para garantir pleno funcionamento de uma das partes fundamentais do nosso projeto. A expectativa é que na versão 1.05 eu traga a tela de cadastro já funcional e capaz de armazenar os dados de autenticação no banco MongoDB(requisito para entrega do projeto.) - Nícolas R.
+Currently, two official plugins are available:
 
-### V1.05 - 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-##### correção de bugs da V1.0 em relação ao 2FA
-Backend de registro e login com integração a banco de dados NoSQL realizada utilizando o mongoose. Implementação de 2FA realizada com sucesso onde é possível registrar a semente em um aplicativo autenticador e a cada login, fazer a validação; Por ora, esperamos implementar as telas principais do nosso projeto para em seguida darmos continuidade. - Nícolas R.
+## Expanding the ESLint configuration
 
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+
+- Configure the top-level `parserOptions` property like this:
+
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
+
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
+
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
