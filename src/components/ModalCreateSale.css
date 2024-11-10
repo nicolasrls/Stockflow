@@ -86,4 +86,8 @@
     width: 60%;
     margin: auto;
     cursor: pointer;
+    transition: .2s ease-in-out;
+}
+.btn:hover {
+    background-color: pink;
 }
