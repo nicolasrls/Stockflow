@@ -1,8 +1,9 @@
-import React from 'react';
-import './App.css';
-import Button from './components/NewButton';
-import DataTable from './components/DataTable';
-import CalendarButton from './components/CalendarButton';
+import React, { useState } from "react";
+import Button from "./components/NewButton";
+import DataTable from "./components/DataTable";
+import CalendarButton from "./components/CalendarButton";
+import { ModalCreateSale } from "./components/ModalCreateSale";
+import "./App.css";
 
 interface AppProps {
   data: {
@@ -15,8 +16,10 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = ({ data }) => {
+  const [modalCreate, setModalCreate] = useState<boolean>(false);
+
   const handleButtonClick = () => {
-    console.log('Botão clicado!');
+    setModalCreate(!modalCreate);
   };
 
   const handleSelectDate = (date: Date) => {
@@ -24,10 +27,14 @@ const App: React.FC<AppProps> = ({ data }) => {
   };
 
   return (
-    <div className="container">      
+    <div className="container">
       <Button onClick={handleButtonClick}>Nova Venda</Button>
       <CalendarButton onSelectDate={handleSelectDate} />
       <DataTable data={data} />
+
+      {modalCreate === true ? (
+        <ModalCreateSale modalCreate={modalCreate} setModalCreate={setModalCreate} />
+      ) : null}
     </div>
   );
 };

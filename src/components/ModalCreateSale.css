@@ -1,0 +1,89 @@
+.containerModal {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: transparent;
+    border: 0;
+    z-index: 1;
+}
+
+.transparency {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #00000080;
+    z-index: 2;
+}
+
+.modalMain {
+    background-color: white;
+    color: palevioletred;
+    border: 1px solid palevioletred;
+    border-radius: 2em;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: .5em 3em 2em;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.10);
+    z-index: 3;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.containerInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    height: 180px;
+    gap: 1.5em;
+}
+
+.containerInput {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: .3em;
+}
+
+.containerInput label {
+    font-weight: 500;
+}
+
+.containerInput input,
+.containerInput select {
+    background-color: whitesmoke;
+    color: #1D1D1D;
+    border: 1px solid #000000;
+    border-radius: .8em;
+    padding: .5em .8em;
+}
+
+.btn {
+    background-color: palevioletred;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    border: 0;
+    border-radius: 2em;
+    padding: 1em;
+    width: 60%;
+    margin: auto;
+    cursor: pointer;
+}
