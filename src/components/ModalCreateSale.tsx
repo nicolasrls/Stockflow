@@ -18,7 +18,10 @@ export const ModalCreateSale = ({ modalCreate, setModalCreate }: Modal) => {
       <article className="modalMain">
         <h2>Crie sua venda</h2>
 
-        <FormCreateSale modalCreate={modalCreate} setModalCreate={setModalCreate} />
+        <FormCreateSale
+          modalCreate={modalCreate}
+          setModalCreate={setModalCreate}
+        />
       </article>
     </dialog>
   );

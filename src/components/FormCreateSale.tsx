@@ -2,8 +2,8 @@
 import { FormEvent, useEffect, useState } from "react";
 import { Modal } from "./ModalCreateSale";
 import axios from "axios";
-import "./ModalCreateSale.css";
 import { PayWays } from "../types/PayWays";
+import "./FormCreateSale.css";
 
 export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
   const [name, setName] = useState<string>("");
@@ -23,7 +23,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
   };
 
   useEffect(() => {
-    getPaysWay()
+    getPaysWay();
   }, []);
 
   const handlePayWayChange = (id: string) => {
@@ -41,7 +41,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
       price,
     };
 
-    console.table(saleData)
+    console.table(saleData);
 
     try {
       await axios
@@ -67,6 +67,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
             placeholder="Insira o nome do produto"
           />
         </div>
@@ -79,6 +80,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
             id="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            required
           />
         </div>
 
@@ -90,10 +92,13 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
             id="pay"
             value={payWay?.id || ""}
             onChange={(e) => handlePayWayChange(e.target.value)}
+            required
           >
             <option value="">Selecione</option>
             {payWays.map((pay) => (
-              <option key={pay.id} value={pay.id}>{pay.name}</option>
+              <option key={pay.id} value={pay.id}>
+                {pay.name}
+              </option>
             ))}
           </select>
         </div>
@@ -106,6 +111,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
             id="price"
             value={price}
             onChange={(e) => setPrice(e.target.valueAsNumber)}
+            required
             placeholder="Insira o valor em dinheiro"
           />
         </div>

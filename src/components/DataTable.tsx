@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { Sale } from '../types/Sale';
-import axios from 'axios';
-import './DataTable.css';
-import { PayWays } from '../types/PayWays';
+import { useEffect, useState } from "react";
+import { Sale } from "../types/Sale";
+import axios from "axios";
+import "./DataTable.css";
+import { PayWays } from "../types/PayWays";
 
 const DataTable = () => {
-  const [sales, setSales] = useState<Sale[]>([])
+  const [sales, setSales] = useState<Sale[]>([]);
   const [payWays, setPayWays] = useState<PayWays[]>([]);
 
   const getSales = async () => {
@@ -31,7 +31,7 @@ const DataTable = () => {
 
   useEffect(() => {
     getSales();
-    getPaysWay()
+    getPaysWay();
   }, [sales]);
 
   const getPayWayName = (payWayId: string) => {

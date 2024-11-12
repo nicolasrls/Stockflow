@@ -1,32 +1,18 @@
 {
   "sales": [
     {
-      "id": "d9aa",
-      "name": "",
-      "date": "00-00-0000",
-      "payWay": "2",
-      "price": 0
-    },
-    {
-      "id": "861f",
-      "name": "",
-      "date": "00-00-0000",
-      "payWay": "3",
-      "price": 0
-    },
-    {
-      "id": "dd18",
-      "name": "",
-      "date": "00-00-0000",
-      "payWay": "2",
-      "price": 0
-    },
-    {
       "id": "0159",
       "name": "chave",
       "date": "2020-02-20",
       "payWay": "1",
       "price": 5
+    },
+    {
+      "id": "bde1",
+      "name": "casa",
+      "date": "1000-10-10",
+      "payWay": "1",
+      "price": 100
     }
   ],
   "payWays": [
