@@ -7,10 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "concurrently \"npm start\" \"json-server --watch ./src/data/db.json --port 3000\""
   },
   "dependencies": {
+    "axios": "^1.7.7",
+    "concurrently": "^9.1.0",
     "date-fns": "^4.1.0",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.1",
     "react": "^18.3.1",
     "react-datepicker": "^7.4.0",
     "react-dom": "^18.3.1",

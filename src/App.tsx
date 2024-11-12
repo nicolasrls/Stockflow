@@ -1,21 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "./components/NewButton";
 import DataTable from "./components/DataTable";
 import CalendarButton from "./components/CalendarButton";
 import { ModalCreateSale } from "./components/ModalCreateSale";
 import "./App.css";
 
-interface AppProps {
-  data: {
-    id: number;
-    produto: string;
-    data: string;
-    pagamento: string;
-    valor: number;
-  }[];
-}
-
-const App: React.FC<AppProps> = ({ data }) => {
+const App = () => {
   const [modalCreate, setModalCreate] = useState<boolean>(false);
 
   const handleButtonClick = () => {
@@ -30,11 +20,11 @@ const App: React.FC<AppProps> = ({ data }) => {
     <div className="container">
       <Button onClick={handleButtonClick}>Nova Venda</Button>
       <CalendarButton onSelectDate={handleSelectDate} />
-      <DataTable data={data} />
+      <DataTable />
 
-      {modalCreate === true ? (
+      {modalCreate && (
         <ModalCreateSale modalCreate={modalCreate} setModalCreate={setModalCreate} />
-      ) : null}
+      )}
     </div>
   );
 };
