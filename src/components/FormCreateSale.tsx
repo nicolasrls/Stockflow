@@ -8,7 +8,7 @@ import { PayWays } from "../types/PayWays";
 export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
   const [name, setName] = useState<string>("");
   const [date, setDate] = useState<string>("00-00-0000");
-  const [payWay, setPayWay] = useState<string>("");
+  const [payWay, setPayWay] = useState<PayWays | null>(null);
   const [payWays, setPayWays] = useState<PayWays[]>([]);
   const [price, setPrice] = useState<number>(0);
 
@@ -26,13 +26,18 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
     getPaysWay()
   }, []);
 
+  const handlePayWayChange = (id: string) => {
+    const selectedPayWay = payWays.find((pay) => pay.id === id) || null;
+    setPayWay(selectedPayWay); // Atualiza com o objeto inteiro
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     const saleData: object = {
       name,
       date,
-      payWay,
+      payWay: payWay?.id,
       price,
     };
 
@@ -83,8 +88,8 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
           <select
             name="pay"
             id="pay"
-            value={payWay}
-            onChange={(e) => setPayWay(e.target.value)}
+            value={payWay?.id || ""}
+            onChange={(e) => handlePayWayChange(e.target.value)}
           >
             <option value="">Selecione</option>
             {payWays.map((pay) => (

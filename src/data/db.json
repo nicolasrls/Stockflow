@@ -1,58 +1,45 @@
 {
   "sales": [
     {
-      "id": "da9b",
-      "name": "chave",
-      "date": "2010-10-10",
-      "payWay": "creditCard",
-      "val": 20
-    },
-    {
-      "id": "d6ba",
-      "name": "brinquedo",
-      "date": "2020-02-20",
-      "payWay": "",
-      "price": 1000
-    },
-    {
-      "id": "41d1",
-      "name": "batata",
-      "date": "2023-12-12",
-      "payWay": "",
-      "price": 500
-    },
-    {
-      "id": "a65d",
+      "id": "d9aa",
       "name": "",
       "date": "00-00-0000",
-      "payWays": [
-        {
-          "id": 1,
-          "name": "Cartão de Crédito"
-        },
-        {
-          "id": 2,
-          "name": "Boleto"
-        },
-        {
-          "id": 3,
-          "name": "Pix"
-        }
-      ],
+      "payWay": "2",
       "price": 0
+    },
+    {
+      "id": "861f",
+      "name": "",
+      "date": "00-00-0000",
+      "payWay": "3",
+      "price": 0
+    },
+    {
+      "id": "dd18",
+      "name": "",
+      "date": "00-00-0000",
+      "payWay": "2",
+      "price": 0
+    },
+    {
+      "id": "0159",
+      "name": "chave",
+      "date": "2020-02-20",
+      "payWay": "1",
+      "price": 5
     }
   ],
   "payWays": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Cartão de Crédito"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Boleto"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pix"
     }
   ]

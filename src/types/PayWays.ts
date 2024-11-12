@@ -1,4 +1,4 @@
 export interface PayWays {
-  id: number;
+  id: string;
   name: string;
 }
