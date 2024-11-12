@@ -46,7 +46,11 @@ const DataTable = () => {
             ))}
           </>
         ) : (
-          <p>Nenhuma venda ainda cadastrada.</p>
+          <tr className="none">
+            <td colSpan={5}>
+              <p>Nenhuma venda ainda cadastrada.</p>
+            </td>
+          </tr>
         )}
       </tbody>
     </table>

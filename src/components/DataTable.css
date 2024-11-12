@@ -38,3 +38,13 @@ table {
   tbody {
     background-color: #e7e7e7;
   }
+
+  .none {
+    color: #070707;
+  }
+
+  .none td {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+  }
