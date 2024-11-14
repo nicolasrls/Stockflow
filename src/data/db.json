@@ -1,20 +1,5 @@
 {
-  "sales": [
-    {
-      "id": "0159",
-      "name": "chave",
-      "date": "2020-02-20",
-      "payWay": "1",
-      "price": 5
-    },
-    {
-      "id": "bde1",
-      "name": "casa",
-      "date": "1000-10-10",
-      "payWay": "1",
-      "price": 100
-    }
-  ],
+  "sales": [],
   "payWays": [
     {
       "id": "1",

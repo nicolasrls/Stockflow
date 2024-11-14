@@ -5,7 +5,7 @@ import { saleFetch } from "../api/config";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import "./DataTable.css";
 
-const DataTable = () => {
+export const DataTable = () => {
   const [sales, setSales] = useState<Sale[]>([]);
   const [payWays, setPayWays] = useState<PayWays[]>([]);
 
@@ -14,7 +14,6 @@ const DataTable = () => {
       const response = await saleFetch.get("/sales");
       const data: Sale[] = response.data;
       setSales(data);
-      
     } catch (error) {
       console.log(`Error: ${error}`);
     }
@@ -37,7 +36,23 @@ const DataTable = () => {
 
   const getPayWayName = (payWayId: string) => {
     const payWay = payWays.find((pay) => pay.id === payWayId);
-    return payWay ? payWay.name : "Desconhecido"; // Retorna "Desconhecido" se não encontrar o ID
+    return payWay ? payWay.name : null;
+  };
+
+  const deleteSale = async (id: string) => {
+    const confirmDelete = confirm(
+      `Tem certeza que deseja apagar o produto ${sales.map((sale) =>
+        sale.id === id ? sale.name : null
+      )}?`
+    );
+
+    if (confirmDelete) {
+      await saleFetch.delete(`/sales/${id}`);
+
+      const filteredSales = sales.filter((sale) => sale.id !== id);
+
+      setSales(filteredSales);
+    }
   };
 
   return (
@@ -64,14 +79,14 @@ const DataTable = () => {
                 <td>{sale.price}</td>
                 <td className="ops">
                   <FaEdit className="op" />
-                  <FaTrash className="op" />
+                  <FaTrash className="op" onClick={() => deleteSale(sale.id)} />
                 </td>
               </tr>
             ))}
           </>
         ) : (
           <tr className="none">
-            <td colSpan={5}>
+            <td colSpan={6}>
               <p>Nenhuma venda ainda cadastrada.</p>
             </td>
           </tr>
@@ -80,5 +95,3 @@ const DataTable = () => {
     </table>
   );
 };
-
-export default DataTable;
