@@ -1,8 +1,8 @@
 // import axios from "axios";
 import { FormEvent, useEffect, useState } from "react";
 import { Modal } from "./ModalCreateSale";
-import axios from "axios";
 import { PayWays } from "../types/PayWays";
+import { saleFetch } from "../api/config";
 import "./FormCreateSale.css";
 
 export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
@@ -14,7 +14,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
 
   const getPaysWay = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/payWays");
+      const response = await saleFetch.get("/payWays");
       const data: PayWays[] = response.data;
       setPayWays(data);
     } catch (error) {
@@ -44,8 +44,8 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: Modal) => {
     console.table(saleData);
 
     try {
-      await axios
-        .post("http://localhost:3000/sales", {
+      await saleFetch
+        .post("/sales", {
           ...saleData,
         })
         .then((response) => response.data);

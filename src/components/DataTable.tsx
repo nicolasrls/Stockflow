@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Sale } from "../types/Sale";
-import axios from "axios";
 import "./DataTable.css";
 import { PayWays } from "../types/PayWays";
+import { saleFetch } from "../api/config";
 
 const DataTable = () => {
   const [sales, setSales] = useState<Sale[]>([]);
@@ -10,7 +10,7 @@ const DataTable = () => {
 
   const getSales = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/sales");
+      const response = await saleFetch.get("/sales");
       const data: Sale[] = response.data;
       setSales(data);
       
@@ -21,7 +21,7 @@ const DataTable = () => {
 
   const getPaysWay = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/payWays");
+      const response = await saleFetch.get("/payWays");
       const data: PayWays[] = response.data;
       setPayWays(data);
     } catch (error) {
