@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Sale } from "../types/Sale";
-import "./DataTable.css";
 import { PayWays } from "../types/PayWays";
 import { saleFetch } from "../api/config";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import "./DataTable.css";
 
 const DataTable = () => {
   const [sales, setSales] = useState<Sale[]>([]);
@@ -47,7 +48,8 @@ const DataTable = () => {
           <th>Produto</th>
           <th>Data</th>
           <th>Meio de Pagamento</th>
-          <th className="th-last">Valor (R$)</th>
+          <th>Valor (R$)</th>
+          <th className="th-last">Opções</th>
         </tr>
       </thead>
       <tbody>
@@ -60,6 +62,10 @@ const DataTable = () => {
                 <td>{sale.date}</td>
                 <td>{getPayWayName(sale.payWay)}</td>
                 <td>{sale.price}</td>
+                <td className="ops">
+                  <FaEdit className="op" />
+                  <FaTrash className="op" />
+                </td>
               </tr>
             ))}
           </>

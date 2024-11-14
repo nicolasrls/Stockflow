@@ -39,6 +39,33 @@ table {
     background-color: #e7e7e7;
   }
 
+  td.ops {
+    text-align: center;
+  }
+
+  td.ops > .op {
+    font-size: 1.2em;
+    transform: translateY(.1em);
+    cursor: pointer;
+    transition: .2s;
+  }
+
+  td.ops > .op:first-child {
+    margin-right: .25em;
+    color: #4242ff;
+  }
+  td.ops > .op:first-child:hover {
+    color: #6a6aff;
+  }
+
+  td.ops > .op:last-child {
+    margin-left: .25em;
+    color: #ff4848;
+  }
+  td.ops > .op:last-child:hover {
+    color: #ff6a6a;
+  }
+
   .none {
     color: #070707;
   }
