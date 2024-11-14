@@ -7,7 +7,7 @@ interface CalendarButtonProps {
   onSelectDate: (date: Date) => void;  
 }  
 
-const CalendarButton: React.FC<CalendarButtonProps> = ({ onSelectDate }) => {  
+export const CalendarButton: React.FC<CalendarButtonProps> = ({ onSelectDate }) => {  
   const [isOpen, setIsOpen] = useState<boolean>(false);  
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);  
 
@@ -46,5 +46,3 @@ const CalendarButton: React.FC<CalendarButtonProps> = ({ onSelectDate }) => {
     </div>  
   );  
 };  
-
-export default CalendarButton;

@@ -35,8 +35,12 @@ table {
     border-top-right-radius: 15px;
   }
   
-  tbody tr:nth-last-child(2n) {
+  tbody tr:nth-last-child(odd) {
     background-color: #e7e7e7;
+  }
+  
+  tbody tr:nth-last-child(even) {
+    background-color: transparent;
   }
 
   td.ops {

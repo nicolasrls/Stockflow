@@ -1,5 +1,13 @@
 {
-  "sales": [],
+  "sales": [
+    {
+      "id": "40ac",
+      "name": "Mangá",
+      "date": "2023-02-20",
+      "payWay": "3",
+      "price": 25
+    }
+  ],
   "payWays": [
     {
       "id": "1",

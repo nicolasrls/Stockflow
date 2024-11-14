@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Button from "./components/NewButton";
-import DataTable from "./components/DataTable";
-import CalendarButton from "./components/CalendarButton";
+import { Button } from "./components/NewButton";
+import { CalendarButton } from "./components/CalendarButton";
+import { DataTable } from "./components/DataTable";
 import { ModalCreateSale } from "./components/ModalCreateSale";
 import "./App.css";
 
