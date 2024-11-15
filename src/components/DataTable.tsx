@@ -3,11 +3,13 @@ import { Sale } from "../types/Sale";
 import { PayWays } from "../types/PayWays";
 import { saleFetch } from "../api/config";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { ModalEditSale } from "./ModalEditSale";
 import "./DataTable.css";
 
 export const DataTable = () => {
   const [sales, setSales] = useState<Sale[]>([]);
   const [payWays, setPayWays] = useState<PayWays[]>([]);
+  const [editSaleId, setEditSaleId] = useState<string | null>(null);
 
   const getSales = async () => {
     try {
@@ -55,43 +57,61 @@ export const DataTable = () => {
     }
   };
 
+  const closeModal = () => setEditSaleId(null);
+
   return (
-    <table className="data-table">
-      <thead>
-        <tr className="tr-title">
-          <th className="th-first">ID</th>
-          <th>Produto</th>
-          <th>Data</th>
-          <th>Meio de Pagamento</th>
-          <th>Valor (R$)</th>
-          <th className="th-last">Opções</th>
-        </tr>
-      </thead>
-      <tbody>
-        {sales.length > 0 ? (
-          <>
-            {sales.map((sale) => (
-              <tr key={sale.id}>
-                <td>{sale.id}</td>
-                <td>{sale.name}</td>
-                <td>{sale.date}</td>
-                <td>{getPayWayName(sale.payWay)}</td>
-                <td>{sale.price}</td>
-                <td className="ops">
-                  <FaEdit className="op" />
-                  <FaTrash className="op" onClick={() => deleteSale(sale.id)} />
-                </td>
-              </tr>
-            ))}
-          </>
-        ) : (
-          <tr className="none">
-            <td colSpan={6}>
-              <p>Nenhuma venda ainda cadastrada.</p>
-            </td>
+    <>
+      <table className="data-table">
+        <thead>
+          <tr className="tr-title">
+            <th className="th-first">ID</th>
+            <th>Produto</th>
+            <th>Data</th>
+            <th>Meio de Pagamento</th>
+            <th>Valor (R$)</th>
+            <th className="th-last">Opções</th>
           </tr>
-        )}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {sales.length > 0 ? (
+            <>
+              {sales.map((sale) => (
+                <tr key={sale.id}>
+                  <td>{sale.id}</td>
+                  <td>{sale.name}</td>
+                  <td>{sale.date}</td>
+                  <td>{getPayWayName(sale.payWay)}</td>
+                  <td>{sale.price}</td>
+                  <td className="ops">
+                    <FaEdit
+                      className="op"
+                      onClick={() => setEditSaleId(sale.id)}
+                    />
+                    <FaTrash
+                      className="op"
+                      onClick={() => deleteSale(sale.id)}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </>
+          ) : (
+            <tr className="none">
+              <td colSpan={6}>
+                <p>Nenhuma venda ainda cadastrada.</p>
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+      {editSaleId && (
+        <ModalEditSale
+          modalEdit={!!editSaleId}
+          setModalEdit={closeModal}
+          idSale={editSaleId}
+          nameSale={sales.find((sale) => sale.id === editSaleId)?.name || ""}
+        />
+      )}
+    </>
   );
 };

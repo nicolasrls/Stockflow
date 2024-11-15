@@ -1,37 +1,51 @@
-// import axios from "axios";
 import { FormEvent, useEffect, useState } from "react";
-import { ModalCreate } from "../types/ModalCreate";
 import { PayWays } from "../types/PayWays";
 import { saleFetch } from "../api/config";
-import "./FormCreateSale.css";
+import { ModalEdit } from "../types/ModalEdit";
 
-export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => {
+export const FormEditSale = ({
+  setModalEdit,
+  modalEdit,
+  idSale,
+}: ModalEdit) => {
   const [name, setName] = useState<string>("");
-  const [date, setDate] = useState<string>("00-00-0000");
+  const [date, setDate] = useState<string>("");
   const [payWay, setPayWay] = useState<PayWays | null>(null);
   const [payWays, setPayWays] = useState<PayWays[]>([]);
   const [price, setPrice] = useState<number>(0);
 
-  const getPaysWay = async () => {
-    try {
-      const response = await saleFetch.get("/payWays");
-      const data: PayWays[] = response.data;
-      setPayWays(data);
-    } catch (error) {
-      console.log(`Error: ${error}`);
-    }
-  };
-
   useEffect(() => {
-    getPaysWay();
-  }, []);
+    const fetchData = async () => {
+      try {
+        // Carregar os meios de pagamento
+        const payWaysResponse = await saleFetch.get("/payWays");
+        const payWaysData: PayWays[] = payWaysResponse.data;
+        setPayWays(payWaysData);
+
+        // Carregar os dados da venda
+        const saleResponse = await saleFetch.get(`/sales/${idSale}`);
+        const saleData = saleResponse.data;
+
+        setName(saleData.name);
+        setDate(saleData.date);
+        setPrice(saleData.price);
+
+        // Encontrar o meio de pagamento da venda
+        const selectedPayWay = payWaysData.find((pay) => pay.id === saleData.payWay);
+        setPayWay(selectedPayWay || null);
+      } catch (error) {
+        console.log(`Error: ${error}`);
+      }
+    };
+    fetchData();
+  }, [idSale]);
 
   const handlePayWayChange = (id: string) => {
     const selectedPayWay = payWays.find((pay) => pay.id === id) || null;
-    setPayWay(selectedPayWay); // Atualiza com o objeto inteiro
+    setPayWay(selectedPayWay);
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const editSale = async (e: FormEvent) => {
     e.preventDefault();
 
     const saleData: object = {
@@ -42,20 +56,16 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => 
     };
 
     try {
-      await saleFetch
-        .post("/sales", {
-          ...saleData,
-        })
-        .then((response) => response.data);
-    } catch (error) {
-      console.log(`Error: ${error}`);
-    }
+      await saleFetch.put(`/sales/${idSale}`, saleData);
 
-    setModalCreate(!modalCreate);
+      setModalEdit(!modalEdit);
+    } catch (error) {
+      console.error(`Erro ao editar venda: ${error}`);
+    }
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={editSale}>
       <div className="containerInputs">
         <div className="containerInput">
           <label htmlFor="name">Nome</label>
@@ -63,7 +73,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => 
             type="text"
             name="name"
             id="name"
-            value={name}
+            value={name || ""}
             onChange={(e) => setName(e.target.value)}
             required
             placeholder="Insira o nome do produto"
@@ -76,7 +86,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => 
             type="date"
             name="date"
             id="date"
-            value={date}
+            value={date || ""}
             onChange={(e) => setDate(e.target.value)}
             required
           />
@@ -92,7 +102,6 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => 
             onChange={(e) => handlePayWayChange(e.target.value)}
             required
           >
-            <option value="">Selecione</option>
             {payWays.map((pay) => (
               <option key={pay.id} value={pay.id}>
                 {pay.name}
@@ -107,7 +116,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => 
             type="number"
             name="price"
             id="price"
-            value={price}
+            value={price || 0}
             onChange={(e) => setPrice(e.target.valueAsNumber)}
             required
             placeholder="Insira o valor em dinheiro"
@@ -116,7 +125,7 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => 
       </div>
 
       <button type="submit" className="btn">
-        Criar Venda!
+        Editar Venda!
       </button>
     </form>
   );

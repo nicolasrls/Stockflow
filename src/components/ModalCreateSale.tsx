@@ -1,13 +1,8 @@
-import { ComponentProps } from "react";
+import { ModalCreate } from "../types/ModalCreate";
 import { FormCreateSale } from "./FormCreateSale";
 import "./ModalCreateSale.css";
 
-export type Modal = ComponentProps<"div"> & {
-  modalCreate: boolean;
-  setModalCreate: (modalCreate: boolean) => void;
-};
-
-export const ModalCreateSale = ({ modalCreate, setModalCreate }: Modal) => {
+export const ModalCreateSale = ({ modalCreate, setModalCreate }: ModalCreate) => {
   return (
     <dialog className="containerModal">
       <div
