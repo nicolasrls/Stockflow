@@ -3,7 +3,7 @@ import { Sale } from "../types/Sale";
 import { PayWays } from "../types/PayWays";
 import { saleFetch } from "../api/config";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { ModalEditSale } from "./ModalEditSale";
+import { ModalEditSale } from "./modal/ModalEditSale";
 import "./DataTable.css";
 
 export const DataTable = () => {

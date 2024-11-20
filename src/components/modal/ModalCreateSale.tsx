@@ -1,4 +1,4 @@
-import { ModalCreate } from "../types/ModalCreate";
+import { ModalCreate } from "../../types/ModalCreate";
 import { FormCreateSale } from "./FormCreateSale";
 import "./ModalCreateSale.css";
 

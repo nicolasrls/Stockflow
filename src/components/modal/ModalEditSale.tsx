@@ -1,4 +1,4 @@
-import { ModalEdit } from "../types/ModalEdit"
+import { ModalEdit } from "../../types/ModalEdit"
 import { FormEditSale } from "./FormEditSale"
 
 export const ModalEditSale = ({ setModalEdit, modalEdit, idSale, nameSale }: ModalEdit) => {

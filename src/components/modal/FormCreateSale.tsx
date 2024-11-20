@@ -1,51 +1,37 @@
+// import axios from "axios";
 import { FormEvent, useEffect, useState } from "react";
-import { PayWays } from "../types/PayWays";
-import { saleFetch } from "../api/config";
-import { ModalEdit } from "../types/ModalEdit";
+import { ModalCreate } from "../../types/ModalCreate";
+import { PayWays } from "../../types/PayWays";
+import { saleFetch } from "../../api/config";
+import "./FormCreateSale.css";
 
-export const FormEditSale = ({
-  setModalEdit,
-  modalEdit,
-  idSale,
-}: ModalEdit) => {
+export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => {
   const [name, setName] = useState<string>("");
-  const [date, setDate] = useState<string>("");
+  const [date, setDate] = useState<string>("00-00-0000");
   const [payWay, setPayWay] = useState<PayWays | null>(null);
   const [payWays, setPayWays] = useState<PayWays[]>([]);
   const [price, setPrice] = useState<number>(0);
 
+  const getPaysWay = async () => {
+    try {
+      const response = await saleFetch.get("/payWays");
+      const data: PayWays[] = response.data;
+      setPayWays(data);
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Carregar os meios de pagamento
-        const payWaysResponse = await saleFetch.get("/payWays");
-        const payWaysData: PayWays[] = payWaysResponse.data;
-        setPayWays(payWaysData);
-
-        // Carregar os dados da venda
-        const saleResponse = await saleFetch.get(`/sales/${idSale}`);
-        const saleData = saleResponse.data;
-
-        setName(saleData.name);
-        setDate(saleData.date);
-        setPrice(saleData.price);
-
-        // Encontrar o meio de pagamento da venda
-        const selectedPayWay = payWaysData.find((pay) => pay.id === saleData.payWay);
-        setPayWay(selectedPayWay || null);
-      } catch (error) {
-        console.log(`Error: ${error}`);
-      }
-    };
-    fetchData();
-  }, [idSale]);
+    getPaysWay();
+  }, []);
 
   const handlePayWayChange = (id: string) => {
     const selectedPayWay = payWays.find((pay) => pay.id === id) || null;
-    setPayWay(selectedPayWay);
+    setPayWay(selectedPayWay); // Atualiza com o objeto inteiro
   };
 
-  const editSale = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     const saleData: object = {
@@ -56,16 +42,20 @@ export const FormEditSale = ({
     };
 
     try {
-      await saleFetch.put(`/sales/${idSale}`, saleData);
-
-      setModalEdit(!modalEdit);
+      await saleFetch
+        .post("/sales", {
+          ...saleData,
+        })
+        .then((response) => response.data);
     } catch (error) {
-      console.error(`Erro ao editar venda: ${error}`);
+      console.log(`Error: ${error}`);
     }
+
+    setModalCreate(!modalCreate);
   };
 
   return (
-    <form className="form" onSubmit={editSale}>
+    <form className="form" onSubmit={handleSubmit}>
       <div className="containerInputs">
         <div className="containerInput">
           <label htmlFor="name">Nome</label>
@@ -73,7 +63,7 @@ export const FormEditSale = ({
             type="text"
             name="name"
             id="name"
-            value={name || ""}
+            value={name}
             onChange={(e) => setName(e.target.value)}
             required
             placeholder="Insira o nome do produto"
@@ -86,7 +76,7 @@ export const FormEditSale = ({
             type="date"
             name="date"
             id="date"
-            value={date || ""}
+            value={date}
             onChange={(e) => setDate(e.target.value)}
             required
           />
@@ -102,6 +92,7 @@ export const FormEditSale = ({
             onChange={(e) => handlePayWayChange(e.target.value)}
             required
           >
+            <option value="">Selecione</option>
             {payWays.map((pay) => (
               <option key={pay.id} value={pay.id}>
                 {pay.name}
@@ -116,7 +107,7 @@ export const FormEditSale = ({
             type="number"
             name="price"
             id="price"
-            value={price || 0}
+            value={price}
             onChange={(e) => setPrice(e.target.valueAsNumber)}
             required
             placeholder="Insira o valor em dinheiro"
@@ -125,7 +116,7 @@ export const FormEditSale = ({
       </div>
 
       <button type="submit" className="btn">
-        Editar Venda!
+        Criar Venda!
       </button>
     </form>
   );

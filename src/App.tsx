@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "./components/NewButton";
 import { CalendarButton } from "./components/CalendarButton";
 import { DataTable } from "./components/DataTable";
-import { ModalCreateSale } from "./components/ModalCreateSale";
+import { ModalCreateSale } from "./components/modal/ModalCreateSale";
 import "./App.css";
 
 const App = () => {
