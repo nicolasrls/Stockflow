@@ -5,7 +5,7 @@ import { DataTable } from "./components/DataTable";
 import { ModalCreateSale } from "./components/modal/ModalCreateSale";
 import "./App.css";
 
-const App = () => {
+export const App = () => {
   const [modalCreate, setModalCreate] = useState<boolean>(false);
 
   const handleButtonClick = () => {
@@ -28,5 +28,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
