@@ -59,6 +59,18 @@ export const DataTable = () => {
 
   const closeModal = () => setEditSaleId(null);
 
+  const keyDownEdit = (e: React.KeyboardEvent<SVGElement>, sale: Sale) => {
+    if (e.key === "Enter") {
+      setEditSaleId(sale.id);
+    }
+  };
+
+  const keyDownRemove = (e: React.KeyboardEvent<SVGElement>, sale: Sale) => {
+    if (e.key === "Enter") {
+      deleteSale(sale.id);
+    }
+  };
+
   return (
     <>
       <table className="data-table">
@@ -85,11 +97,15 @@ export const DataTable = () => {
                   <td className="ops">
                     <FaEdit
                       className="op"
+                      tabIndex={0}
                       onClick={() => setEditSaleId(sale.id)}
+                      onKeyDown={(e) => keyDownEdit(e, sale)}
                     />
                     <FaTrash
                       className="op"
+                      tabIndex={0}
                       onClick={() => deleteSale(sale.id)}
+                      onKeyDown={(e) => keyDownRemove(e, sale)}
                     />
                   </td>
                 </tr>

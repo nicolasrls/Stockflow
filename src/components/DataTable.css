@@ -58,7 +58,8 @@ table {
     margin-right: .25em;
     color: #4242ff;
   }
-  td.ops > .op:first-child:hover {
+  td.ops > .op:first-child:hover,
+  td.ops > .op:first-child:focus-visible {
     color: #6a6aff;
   }
 
@@ -66,7 +67,8 @@ table {
     margin-left: .25em;
     color: #ff4848;
   }
-  td.ops > .op:last-child:hover {
+  td.ops > .op:last-child:hover,
+  td.ops > .op:last-child:focus-visible {
     color: #ff6a6a;
   }
 

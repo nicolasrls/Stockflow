@@ -10,10 +10,15 @@
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .2s;
   }
   
-  .NewButton:hover {
+  .NewButton:hover,
+  .NewButton:focus-visible {
      background-color: #8fdb6c;
      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .NewButton:focus-visible {
+     outline: 1px solid black;
   }
