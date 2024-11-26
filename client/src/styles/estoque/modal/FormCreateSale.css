@@ -34,7 +34,7 @@
 }
 
 .btn {
-    background-color: palevioletred;
+    background-color: rgb(5, 17, 0);
     color: white;
     font-weight: bold;
     font-size: 1em;
@@ -48,5 +48,5 @@
     transition: .2s ease-in-out;
 }
 .btn:hover {
-    background-color: pink;
+    background-color: rgb(60, 204, 3);
 }

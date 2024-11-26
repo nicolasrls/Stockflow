@@ -78,10 +78,10 @@ export const DataTable = () => {
         <thead>
           <tr className="tr-title">
             <th className="th-first">ID</th>
-            <th>Produto</th>
-            <th>Data</th>
-            <th>Meio de Pagamento</th>
-            <th>Valor (R$)</th>
+            <th>produtoId</th>
+            <th>quantidadeVendida</th>
+            <th>dataDaVenda</th>
+            <th>valorTotal (R$)</th>
             <th className="th-last">Opções</th>
           </tr>
         </thead>
@@ -115,7 +115,7 @@ export const DataTable = () => {
           ) : (
             <tr className="none">
               <td colSpan={6}>
-                <p>Nenhum produto ainda cadastrado.</p>
+                <p>Nenhuma venda ainda cadastrada.</p>
               </td>
             </tr>
           )}

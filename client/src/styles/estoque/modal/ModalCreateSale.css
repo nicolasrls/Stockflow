@@ -29,8 +29,8 @@
 
 .modalMain {
     background-color: white;
-    color: palevioletred;
-    border: 1px solid palevioletred;
+    color: #00000080;
+    border: 1px solid #00000080;
     border-radius: 2em;
     width: max-content;
     height: max-content;
