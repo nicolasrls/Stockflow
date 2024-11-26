@@ -4,9 +4,9 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.container {
-  min-width: max-content;
-  min-height: max-content;
+.container.stock {
+  width: max-content;
+  max-height: 80vh;
 }
 
 .logo {

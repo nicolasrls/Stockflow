@@ -17,7 +17,7 @@ const Estoque: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container stock">
       <Button onClick={handleButtonClick}>Nova Venda</Button>
       <CalendarButton onSelectDate={handleSelectDate} />
       <DataTable />
