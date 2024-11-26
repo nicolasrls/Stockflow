@@ -2,7 +2,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { ModalCreate } from "../../../types/ModalCreate";
 import { PayWays } from "../../../types/PayWays";
-import { saleFetch } from "../../../src/api/config";
+import { saleFetch } from "../../../api/config";
 import "../../../styles/estoque/modal/FormCreateSale.css";
 
 export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => {

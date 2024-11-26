@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import { PayWays } from "../../../types/PayWays";
-import { saleFetch } from "../../../src/api/config";
+import { saleFetch } from "../../../api/config";
 import { ModalEdit } from "../../../types/ModalEdit";
 
 export const FormEditSale = ({

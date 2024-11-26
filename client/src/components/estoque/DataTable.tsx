@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Sale } from "../../types/Sale";
 import { PayWays } from "../../types/PayWays";
-import { saleFetch } from "../../src/api/config";
+import { saleFetch } from "../../api/config";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { ModalEditSale } from "./modal/ModalEditSale";
 import "../../styles/estoque/DataTable.css";
