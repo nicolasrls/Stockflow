@@ -5,7 +5,10 @@ import { PayWays } from "../../../types/PayWays";
 import { saleFetch } from "../../../api/config";
 import "../../../styles/estoque/modal/FormCreateSale.css";
 
-export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => {
+export const FormCreateSale = ({
+  setModalCreate,
+  modalCreate,
+}: ModalCreate) => {
   const [name, setName] = useState<string>("");
   const [date, setDate] = useState<string>("00-00-0000");
   const [payWay, setPayWay] = useState<PayWays | null>(null);
@@ -88,16 +91,27 @@ export const FormCreateSale = ({ setModalCreate, modalCreate }: ModalCreate) => 
           <select
             name="pay"
             id="pay"
-            value={payWay?.id || ""}
+            value={payWay?.id}
             onChange={(e) => handlePayWayChange(e.target.value)}
             required
           >
             <option value="">Selecione</option>
-            {payWays.map((pay) => (
-              <option key={pay.id} value={pay.id}>
-                {pay.name}
-              </option>
-            ))}
+
+            {payWays.length !== 0 ? (
+              payWays.map((pay) => (
+                <option key={pay.id} value={pay.id}>
+                  {pay.name}
+                </option>
+              ))
+            ) : (
+              <>
+                <option key={"1"} value={"1"}>Cartão de Crédito</option>
+
+                <option key={"2"} value={"2"}>Boleto</option>
+
+                <option key={"3"} value={"3"}>Pix</option>
+              </>
+            )}
           </select>
         </div>
 
