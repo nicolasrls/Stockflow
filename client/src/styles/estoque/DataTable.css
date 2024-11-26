@@ -6,10 +6,12 @@ table {
   .tr-title {
     background-color: #070707;
   }
+  .tr-title th {
+    padding: 1em;
+  }
   
   th, td {
     color: #FBFBFB;
-    padding: 8px;
     text-align: left;
   }
   
@@ -27,12 +29,14 @@ table {
     border-bottom: none;
   }
   
-  .th-first {
+  .tr-title .th-first {
     border-top-left-radius: 15px;
+    padding-left: 1.6em;
   }
   
-  .th-last {
+  .tr-title .th-last {
     border-top-right-radius: 15px;
+    padding-right: 1.6em;
   }
   
   tbody tr:nth-last-child(odd) {
@@ -81,4 +85,5 @@ table {
     text-align: center;
     margin: auto;
     width: 100%;
+    padding: 1em 0 2em;
   }

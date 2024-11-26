@@ -30,6 +30,7 @@
     border: 1px solid #000000;
     border-radius: .8em;
     padding: .5em .8em;
+    min-width: 200px;
 }
 
 .btn {
@@ -42,6 +43,7 @@
     padding: 1em;
     width: 60%;
     margin: auto;
+    margin-top: -2%;
     cursor: pointer;
     transition: .2s ease-in-out;
 }

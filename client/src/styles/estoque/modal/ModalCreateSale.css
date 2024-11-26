@@ -32,11 +32,15 @@
     color: palevioletred;
     border: 1px solid palevioletred;
     border-radius: 2em;
-    width: fit-content;
-    height: fit-content;
+    width: max-content;
+    height: max-content;
     display: flex;
     flex-direction: column;
-    padding: .5em 3em 2em;
+    padding: 2em 3em;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.10);
     z-index: 3;
+}
+
+.modalMain h2 {
+    margin-bottom: 1em;
 }
