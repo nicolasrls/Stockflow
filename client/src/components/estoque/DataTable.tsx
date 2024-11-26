@@ -100,13 +100,13 @@ export const DataTable = () => {
                       className="op"
                       tabIndex={0}
                       onClick={() => setEditSaleId(sale.id)}
-                      onKeyDown={(e) => keyDownEdit(e, sale)}
+                      onKeyDown={(e: React.KeyboardEvent<SVGElement>) => keyDownEdit(e, sale)}
                     />
                     <FaTrash
                       className="op"
                       tabIndex={0}
                       onClick={() => deleteSale(sale.id)}
-                      onKeyDown={(e) => keyDownRemove(e, sale)}
+                      onKeyDown={(e: React.KeyboardEvent<SVGElement>) => keyDownRemove(e, sale)}
                     />
                   </td>
                 </tr>
