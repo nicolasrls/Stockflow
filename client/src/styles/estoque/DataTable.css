@@ -19,6 +19,7 @@ table {
     color: #000000;
     border-bottom: 2px solid #b9b9b9;
     border-right: 2px solid #b9b9b9;
+    padding: .8em;
   }
   
   td:last-child {
@@ -59,7 +60,7 @@ table {
   }
 
   td.ops > .op:first-child {
-    margin-right: .25em;
+    margin-right: .35em;
     color: #4242ff;
   }
   td.ops > .op:first-child:hover,
@@ -68,7 +69,7 @@ table {
   }
 
   td.ops > .op:last-child {
-    margin-left: .25em;
+    margin-left: .35em;
     color: #ff4848;
   }
   td.ops > .op:last-child:hover,

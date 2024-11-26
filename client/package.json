@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "@types/qrcode.react": "^1.0.5"
+    "@types/qrcode.react": "^1.0.5",
+    "@types/react-datepicker": "^6.2.0"
   }
 }
