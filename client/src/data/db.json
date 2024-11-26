@@ -1,0 +1,46 @@
+{
+  "sales": [
+    {
+      "name": "Mangá",
+      "date": "2023-02-20",
+      "payWay": "1",
+      "price": 25,
+      "id": "40ac"
+    },
+    {
+      "name": "Lápis",
+      "date": "2025-11-15",
+      "payWay": "3",
+      "price": 8,
+      "id": "945f"
+    },
+    {
+      "name": "Lapinseira",
+      "date": "2025-10-10",
+      "payWay": "2",
+      "price": 10,
+      "id": "fc59"
+    },
+    {
+      "name": "Mochila",
+      "date": "2024-11-15",
+      "payWay": "1",
+      "price": 100,
+      "id": "a248"
+    }
+  ],
+  "payWays": [
+    {
+      "id": "1",
+      "name": "Cartão de Crédito"
+    },
+    {
+      "id": "2",
+      "name": "Boleto"
+    },
+    {
+      "id": "3",
+      "name": "Pix"
+    }
+  ]
+}

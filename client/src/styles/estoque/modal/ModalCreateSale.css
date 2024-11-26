@@ -1,0 +1,46 @@
+.containerModal {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: transparent;
+    border: 0;
+    z-index: 1;
+}
+
+.transparency {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #00000080;
+    z-index: 2;
+}
+
+.modalMain {
+    background-color: white;
+    color: palevioletred;
+    border: 1px solid palevioletred;
+    border-radius: 2em;
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 3em;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.10);
+    z-index: 3;
+}
+
+.modalMain h2 {
+    margin-bottom: 1em;
+}
