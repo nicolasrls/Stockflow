@@ -98,15 +98,25 @@ export const FormEditSale = ({
           <select
             name="pay"
             id="pay"
-            value={payWay?.id || ""}
+            value={payWay?.id}
             onChange={(e) => handlePayWayChange(e.target.value)}
             required
           >
-            {payWays.map((pay) => (
-              <option key={pay.id} value={pay.id}>
-                {pay.name}
-              </option>
-            ))}
+            {payWays.length !== 0 ? (
+              payWays.map((pay) => (
+                <option key={pay.id} value={pay.id}>
+                  {pay.name}
+                </option>
+              ))
+            ) : (
+              <>
+                <option key={"1"} value={"1"}>Cartão de Crédito</option>
+
+                <option key={"2"} value={"2"}>Boleto</option>
+
+                <option key={"3"} value={"3"}>Pix</option>
+              </>
+            )}
           </select>
         </div>
 
