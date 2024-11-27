@@ -29,23 +29,11 @@ Feito integração da API de Login e Registro com o front-end desenvolvido pelo 
 
 ## 💾 Instalação dos Recursos Necessários
 
-Dependências básicas do React Next
+Dependências necessárias do React
 
 ```bash
   npm i
 ``` 
-
-React Icons
-
-```bash
-  npm install @react-icons/all-files --save
-```
-
-React Router Dom
-
-```bash
-  npm i react-router-dom
-```
 
 ## 💻 Rodando Localmente
 
