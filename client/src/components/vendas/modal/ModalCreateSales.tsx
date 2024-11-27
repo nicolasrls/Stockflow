@@ -1,8 +1,8 @@
 import { ModalCreate } from "../../../types/ModalCreate";
-import { FormCreateSale } from "./FormCreateSale";
+import { FormCreateSales } from "./FormCreateSales";
 import "../../../styles/estoque/modal/ModalCreateSale.css";
 
-export const ModalCreateSale = ({ modalCreate, setModalCreate }: ModalCreate) => {
+export const ModalCreateSales = ({ modalCreate, setModalCreate }: ModalCreate) => {
   return (
     <dialog className="containerModal">
       <div
@@ -13,7 +13,7 @@ export const ModalCreateSale = ({ modalCreate, setModalCreate }: ModalCreate) =>
       <article className="modalMain">
         <h2>Crie sua venda</h2>
 
-        <FormCreateSale
+        <FormCreateSales
           modalCreate={modalCreate}
           setModalCreate={setModalCreate}
         />
