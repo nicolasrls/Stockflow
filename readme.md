@@ -27,14 +27,6 @@ Feito integração da API de Login e Registro com o front-end desenvolvido pelo 
 - Axios
 - CSS
 
-## 💾 Instalação dos Recursos Necessários
-
-Dependências necessárias do React
-
-```bash
-  npm i
-``` 
-
 ## 💻 Rodando Localmente
 
 Clone o projeto
