@@ -50,44 +50,45 @@ const Registro: React.FC = () => {
     return (
         <div className="container">
             <div className="form-box">
-                <form onSubmit={handleSubmit}>
-                    <h3>Cadastro</h3>
-                    <input
-                        type="text"
-                        placeholder="Nome"
-                        value={nome}
-                        onChange={(e) => setNome(e.target.value)}
-                    />
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        placeholder="Senha"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        placeholder="Confirmar Senha"
-                        value={senhaConfirmada}
-                        onChange={(e) => setSenhaConfirmada(e.target.value)}
-                    />
+                {!qrCodeVisible ? (
+                    <form onSubmit={handleSubmit}>
+                        <h3>Cadastro</h3>
+                        <input
+                            type="text"
+                            placeholder="Nome"
+                            value={nome}
+                            onChange={(e) => setNome(e.target.value)}
+                        />
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            placeholder="Senha"
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            placeholder="Confirmar Senha"
+                            value={senhaConfirmada}
+                            onChange={(e) => setSenhaConfirmada(e.target.value)}
+                        />
 
-                    {qrCodeVisible && (
-                        <div className="qrcode-container">
-                            <img src={qrCodeUrl} alt="QR Code" />
-                        </div>
-                    )}
+                        {errorMessage && <p className="error">{errorMessage}</p>}
 
-                    {errorMessage && <p className="error">{errorMessage}</p>}
-
-                    <button type="submit">Cadastrar</button>
-                </form>
-                <p>Já tem uma conta? <a href="/login">Login</a></p>
+                        <button type="submit">Cadastrar</button>
+                    </form>
+                ) : (
+                    <div className="qrcode-container">
+                        <p className="qrcode-message">Escaneie o QR Code com seu aplicativo escaneador</p>
+                        <img src={qrCodeUrl} alt="QR Code" />
+                        <p>Já tem uma conta? <a href="/">Login</a></p>
+                    </div>
+                )}
             </div>
         </div>
     );

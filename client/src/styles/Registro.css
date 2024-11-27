@@ -50,15 +50,22 @@ body {
 
 .qrcode-container {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
 
-.qrcode-container input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.qrcode-message {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.qrcode-container img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
 }
 
 p {

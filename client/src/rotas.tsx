@@ -10,8 +10,8 @@ const Rotas: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Registro />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/Registro" element={<Registro />} />
         <Route path="/vendas" element={<Vendas />} />
         <Route path="/estoque" element={<Estoque />} />
         <Route path="/home" element={<Home/>}/>

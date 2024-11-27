@@ -31,6 +31,9 @@ const Login: React.FC = () => {
                     // Sucesso - Armazenar o token JWT no localStorage ou no estado
                     alert('Login bem-sucedido!');
                     localStorage.setItem('token', data.token); // Exemplo de armazenamento de token
+                    
+                    // Redireciona para a página /home
+                    window.location.href = '/home';
                 } else {
                     // Mostrar erro
                     setErrorMessage(data.message || 'Erro ao fazer login');
@@ -69,7 +72,7 @@ const Login: React.FC = () => {
                     <button type="submit">Entrar</button>
                 </form>
                 {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-                <p>Não tem uma conta? <a href="/">Cadastro</a></p>
+                <p>Não tem uma conta? <a href="/registro">Cadastro</a></p>
             </div>
         </div>
     );
