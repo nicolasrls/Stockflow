@@ -1,7 +1,7 @@
 import { ModalEdit } from "../../../types/ModalEdit"
-import { FormEditSale } from "./FormEditSale"
+import { FormEditSales } from "./FormEditSales"
 
-export const ModalEditSale = ({ setModalEdit, modalEdit, idSale, nameSale }: ModalEdit) => {
+export const ModalEditSales = ({ setModalEdit, modalEdit, idSale, nameSale }: ModalEdit) => {
   return (
     <dialog className="containerModal">
       <div
@@ -12,7 +12,7 @@ export const ModalEditSale = ({ setModalEdit, modalEdit, idSale, nameSale }: Mod
       <article className="modalMain">
         <h2>Edite a venda {nameSale} </h2>
 
-        <FormEditSale
+        <FormEditSales
           modalEdit={modalEdit}
           setModalEdit={setModalEdit}
           idSale={idSale}

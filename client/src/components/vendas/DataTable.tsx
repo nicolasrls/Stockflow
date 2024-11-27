@@ -3,7 +3,7 @@ import { Sale } from "../../types/Sale";
 import { PayWays } from "../../types/PayWays";
 import { saleFetch } from "../../api/config";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { ModalEditSale } from "./modal/ModalEditSale";
+import { ModalEditSales } from "./modal/ModalEditSales";
 import "../../styles/estoque/DataTable.css";
 
 export const DataTable = () => {
@@ -122,7 +122,7 @@ export const DataTable = () => {
         </tbody>
       </table>
       {editSaleId && (
-        <ModalEditSale
+        <ModalEditSales
           modalEdit={!!editSaleId}
           setModalEdit={closeModal}
           idSale={editSaleId}
