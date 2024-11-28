@@ -84,7 +84,7 @@ Rode os códigos do back-end utilizando o seguinte comando
   npm run dev
 ```
 
-## 🪄 Funcionalidades
+## ⚡ Funcionalidades
 
 - Entrar no sistema com email/nome e senha
 - Validação de campos de preenchimento
