@@ -40,17 +40,20 @@ Entre no diretório do projeto
 ```bash
   cd Stockflow
 ```
+
+Depois entre no diretório do front-end
+
 ```bash
   cd client
 ```
 
-Instale as dependências
+Instale as dependências necessárias do front-end
 
 ```bash
   npm i
 ```
 
-Rode os códigos do site utilizando o seguinte comando
+Rode os códigos do front-end utilizando o seguinte comando
 
 ```bash
   npm start
@@ -63,7 +66,25 @@ Vá a um navegador e digite na barra de pesquisa de URL
 ```
 Ou [clique aqui](http://localhost:3000) por mais praticidade para entrar na primeira página do site
 
-## 🪄 Funcionalidades
+Para ativar o back-end do projeto, crie um novo terminal e entre em seu devido diretório
+
+```bash
+  cd server
+```
+
+Instale as dependências necessárias do back-end
+
+```bash
+  npm i
+```
+
+Rode os códigos do back-end utilizando o seguinte comando
+
+```bash
+  npm run dev
+```
+
+## ⚡ Funcionalidades
 
 - Entrar no sistema com email/nome e senha
 - Validação de campos de preenchimento
